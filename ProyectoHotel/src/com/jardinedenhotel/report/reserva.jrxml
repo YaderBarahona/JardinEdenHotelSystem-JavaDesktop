@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51feea86-c29f-43a1-bb93-9647af243c09">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[select * from rentahabitaciones]]>
+	</queryString>
+	<field name="id_renta" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="id_cliente" class="java.lang.Integer"/>
+	<field name="id_habitacion" class="java.lang.Integer"/>
+	<field name="forma_pago" class="java.lang.String"/>
+	<field name="ocupantes_adultos" class="java.lang.Integer"/>
+	<field name="ocupantes_ninios" class="java.lang.Integer"/>
+	<field name="fecha_inicial" class="java.sql.Date"/>
+	<field name="fecha_final" class="java.sql.Date"/>
+	<field name="numero_dias_hospedaje" class="java.lang.Integer"/>
+	<field name="subtotal" class="java.lang.Double"/>
+	<field name="descuento" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cab6e800-bb27-4352-a1fb-d0b989128adc" style="Title" x="1" y="0" width="263" height="62"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4ded855b-5570-44b6-9961-1ebef8840dac" style="SubTitle" x="78" y="62" width="196" height="22"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reserva habitaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22325be0-c503-4726-87b9-a68ce5c38f6e" x="147" y="84" width="243" height="42"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Información general de la reserva de habitaciones]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement uuid="d57d4fcf-423d-4a00-b7cc-1420872c8396" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="a95b4f06-e999-46da-80da-a0b723e03a56" style="Column header" x="0" y="0" width="19" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c528fb2-99c5-49c9-9c52-1b4f836f4f3b" style="Column header" x="19" y="0" width="39" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4c63fce7-1d9b-4fb2-9dd5-f0747123ffec" style="Column header" x="58" y="0" width="41" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2fa03fef-0d21-4f46-90e0-91a63665be65" style="Column header" x="99" y="0" width="57" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID habitación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="197c26b0-d2b3-4e33-af73-8252789682d8" style="Column header" x="156" y="0" width="39" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Forma 
+pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="87d40b8e-2126-441b-9723-d0e913e282cc" style="Column header" x="195" y="0" width="39" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Adultos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c22bd5a0-338b-4f1a-9b8e-28b9b197d5ed" style="Column header" x="234" y="0" width="39" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Niños]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ae2579d3-6c98-4516-9152-7791c42e861a" style="Column header" x="273" y="0" width="39" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Fecha inicial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="de2090d7-3a30-4d86-a109-d639f4126c3a" style="Column header" x="312" y="0" width="39" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Fecha final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="708f6abc-b598-4d5e-a495-ee547b37aa19" style="Column header" x="351" y="0" width="39" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Dias hospedaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="305a9eb0-952a-4df0-a043-d0b345834c80" style="Column header" x="390" y="0" width="39" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7f121442-73f5-45b9-8c09-250888b43cf6" style="Column header" x="429" y="0" width="39" height="38" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Descuento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d3a384f8-7774-4e1e-86ba-baa140f4aaa5" style="Column header" x="468" y="0" width="39" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ef6f1c15-725d-4abb-b392-7922c8c9c97d" style="Column header" x="507" y="0" width="48" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="187" splitType="Stretch">
+			<frame>
+				<reportElement uuid="3a35a7a6-b093-445d-adce-36a63c21199f" style="Row" mode="Opaque" x="0" y="0" width="555" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="76231684-75d4-4566-b1bf-32505d106a76" style="Detail" x="0" y="0" width="19" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_renta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="0c74e278-cff6-4d61-aa7d-ee35e0a10e0b" style="Detail" x="19" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="64487224-f049-448a-bf59-93d90557e60f" style="Detail" x="108" y="0" width="48" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_habitacion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f32d1ef0-b21c-4d78-9025-6cd3a4030925" style="Detail" x="156" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{forma_pago}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="a412db5a-750a-4327-b9b2-cfcfc3c7c39f" style="Detail" x="195" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ocupantes_adultos}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="ca8fc28b-728d-4ce7-ad5d-a87b4b2bae48" style="Detail" x="234" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{ocupantes_ninios}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="49d7ffc5-c9f8-4212-853d-2bac514851a3" style="Detail" x="273" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{fecha_inicial}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="eb98b60b-5eb0-441a-a408-5dc48d3e6223" style="Detail" x="312" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{fecha_final}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7e23d0ff-138d-47b3-ae73-58060b6357b4" style="Detail" x="351" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{numero_dias_hospedaje}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="a73fedb8-7e1b-41fb-ad73-6e7d140a7a38" style="Detail" x="390" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="859ba483-5b3e-453c-92fa-d6bdeb9c406b" style="Detail" x="429" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="05979106-0941-4f84-9483-0b0149b7ffdb" style="Detail" x="468" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="63213590-a1da-41e1-a3f9-443e3dc92d9b" style="Detail" x="507" y="0" width="39" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7eb3c192-2211-4a6e-920f-37991db696b3" style="Detail" x="58" y="0" width="46" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_cliente}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="056421da-a72c-47de-aaed-255bc97350dc" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="2c29c77f-dda0-4a35-ad5b-59e1eed61589" mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="00397514-9cd6-4f93-b75a-86c95b73bd37" style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="d58f0508-e8a0-49c4-8f01-50748ab29f4e" style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="24d911ce-3004-43d6-967f-8796b12a5489" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
